@@ -5,9 +5,9 @@ This software searches an input file by country and returns desired data for tha
 ## How to use this software:
 
 Run the following in command line, changing out the file name, country, and column indexes as needed:
-'''
+```
 python print_fires.py --file_name "Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 3
-'''
+```
 
 ## Installation:
 
