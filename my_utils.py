@@ -27,5 +27,10 @@ def get_column(file_name, query_column, query_value, result_column=1):
         A = l.rstrip().split(',')
         if A[query_column] == query_value:
             result_column_array.append(A[result_column])
-    int_result_column_array = [int(float(i)) for i in result_column_array]
-    return int_result_column_array
+        
+    try:
+        result_column_array = [int(float(i)) for i in result_column_array]
+    except ValueError:
+        print('Could not convert result_column values to integer')
+    finally:
+        return result_column_array
