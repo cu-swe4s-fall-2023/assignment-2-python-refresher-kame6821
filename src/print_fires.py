@@ -43,10 +43,13 @@ def main():
         print(forest_fires)
     except FileNotFoundError:
         print('Could not find ' + args.file_name)
+        sys.exit(1)
     except PermissionError:
         print('Could not open ' + args.file_name)
+        sys.exit(1)
     except IndexError:
         print('At least one column index not in chosen file')
+        sys.exit(1)
     finally:
         print('Data for file name ' + args.file_name)
 
