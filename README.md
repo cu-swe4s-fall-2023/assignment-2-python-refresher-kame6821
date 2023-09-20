@@ -21,3 +21,5 @@ Wrote updated get_column function with query functionality. Edited print_fires.p
 ### Release V2.0 (Assignment 3) Best Practices:
 Updated print_fires.py to work with command line arguments and include a main_function. Updated get_columns function in my_utils to convert output to integer. Updated run.sh to include a functioning example and two examples that create errors. Documentation updated in all files.
 
+#### Release V2.1:
+Added correct folder structure, exit codes in print_fires, and .gitignore file.
