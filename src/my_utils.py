@@ -1,5 +1,8 @@
 """Library of math functions:
     * get_column -- returns desired information from data file
+    * find_mean -- returns mean of an integer array
+    * find_median -- returns median of an integer array
+    * find_std -- returns standard deviation of an integer array
 """
 
 
@@ -35,3 +38,56 @@ def get_column(file_name, query_column, query_value, result_column=1):
         print('Could not convert result_column values to integer')
     finally:
         return result_column_array
+
+
+def find_mean(integer_array):
+    """Finds the average value of an array of integers
+
+    Parameters
+    -------
+    integer array: nx1 array
+        Every value in the one-dimensional array is an integer
+
+    Returns
+    -------
+    array_mean
+        A single value representing the array's average
+    """
+    array_mean = sum(integer_array)/len(integer_array)
+    return array_mean
+
+
+def find_median(integer_array):
+    """Finds the median value of an array of integers
+
+    Parameters
+    -------
+    integer array: nx1 array
+        Every value in the one-dimensional array is an integer
+
+    Returns
+    -------
+    array_median
+        A single value representing the array's median
+    """
+    array_median = (len(integer_array)+1)/2
+    return array_median
+
+
+def find_std(integer_array):
+    """Finds the standard deviation of an array of integers
+
+    Parameters
+    -------
+    integer array: nx1 array
+        Every value in the one-dimensional array is an integer
+
+    Returns
+    -------
+    array_median
+        A single value representing the array's standard deviation
+    """
+    array_mean = sum(integer_array)/len(integer_array)
+    total_numerator = sum((value - array_mean) ** 2 for value in integer_array)
+    array_std = total_numerator/len(integer_array)
+    return array_std
