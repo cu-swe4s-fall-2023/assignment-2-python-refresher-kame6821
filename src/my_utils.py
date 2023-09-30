@@ -53,6 +53,9 @@ def find_mean(integer_array):
     array_mean
         A single value representing the array's average
     """
+    for value in integer_array:
+        if "int" == type(value) is False:
+            raise TypeError("Value %s in list is not an integer" % value)
     array_mean = sum(integer_array)/len(integer_array)
     return array_mean
 
@@ -70,6 +73,8 @@ def find_median(integer_array):
     array_median
         A single value representing the array's median
     """
+    if len(integer_array) <= 0:
+        raise ValueError("Length of array must be greater than zero")
     array_median = (len(integer_array)+1)/2
     return array_median
 
@@ -87,6 +92,9 @@ def find_std(integer_array):
     array_median
         A single value representing the array's standard deviation
     """
+    for value in integer_array:
+        if "int" == type(value) is False:
+            raise TypeError("Value %s in list is not an integer" % value)
     array_mean = sum(integer_array)/len(integer_array)
     total_numerator = sum((value - array_mean) ** 2 for value in integer_array)
     array_std = total_numerator/len(integer_array)
