@@ -49,9 +49,9 @@ class TestMyUtils(unittest.TestCase):
         self.assertRaises(TypeError, my_utils.find_std, ["test", 1.2])
 
     def test_get_column_valueerror(self):
-        # If ValueError is raised does handled exception correctly return None?
-        get_col_result = my_utils.get_column("test_data.csv", 0, "Chile", 0)
-        self.assertIsNone(get_col_result)
+        # Is ValueError correctly raised when query column is bad?
+        self.assertRaises(ValueError, my_utils.get_column,
+                          "../../data/unit_test_data.csv", 0, "Chile", 0)
 
     def test_get_column_nofile(self):
         # Is FileNotFoundError raised correctly when wrong file name is given?
@@ -61,19 +61,20 @@ class TestMyUtils(unittest.TestCase):
     def test_get_column_addopp(self):
         # Does optional statistical argument return a number, not a list?
         for i in range(1, 31):
-            get_col_result = my_utils.get_column("test_data.csv",
-                                                 0, "Chile", i, "mean")
-            self.assertNotIsInstance(get_col_result, list)
+            get_col_res = my_utils.get_column("../../data/unit_test_data.csv",
+                                              0, "Chile", i, "mean")
+            self.assertNotIsInstance(get_col_res, list)
 
     def test_get_column_noopp(self):
         # Does function without optional argument still return a list?
         for i in range(1, 31):
-            get_col_result = my_utils.get_column("test_data.csv",
-                                                 0, "Chile", i)
-            self.assertIsInstance(get_col_result, list)
+            get_col_res = my_utils.get_column("../../data/unit_test_data.csv",
+                                              0, "Chile", i)
+            self.assertIsInstance(get_col_res, list)
 
     def test_get_column_wrongopp(self):
         # Is ValueError raised when bad selection input for stats test?
         for i in range(1, 31):
             self.assertRaises(ValueError, my_utils.get_column,
-                              "test_data.csv", 0, "Chile", i, "blah")
+                              "../../data/unit_test_data.csv",
+                              0, "Chile", i, "blah")

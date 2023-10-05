@@ -36,27 +36,20 @@ def get_column(file_name, query_column, query_value,
         A = line.rstrip().split(',')
         if A[query_column] == query_value:
             result_column_list.append(A[result_column])
-    try:
-        result_column_list = [int(float(i)) for i in result_column_list]
-        if stats == "mean":
-            return find_mean(result_column_list)
-        if stats == "median":
-            return find_median(result_column_list)
-        if stats == "std":
-            return find_std(result_column_list)
-        if stats is None:
-            return result_column_list
-        else:
-            raise ValueError("Selection not an option for a statistical test.",
-                             " Please select mean, median, std, or ",
-                             "select no input to return desired data array")
-            sys.exit(1)
-            return None
-    except ValueError:
-        print("Selection not an option for a statistical test.",
-              " Please select mean, median, std, or ",
-              "select no input to return desired data array")
-        sys.exit(1)
+
+    result_column_list = [int(float(i)) for i in result_column_list]
+    if stats == "mean":
+        return find_mean(result_column_list)
+    if stats == "median":
+        return find_median(result_column_list)
+    if stats == "std":
+        return find_std(result_column_list)
+    if stats is None:
+        return result_column_list
+    else:
+        raise ValueError("Selection not an option for a statistical test.",
+                         " Please select mean, median, std, or ",
+                         "select no input to return desired data array")
         return None
 
 
