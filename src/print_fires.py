@@ -41,6 +41,12 @@ def main():
                                            args.country,
                                            args.result_column)
         print(forest_fires)
+    except ValueError:
+        print('Output array from get_column cannot be empty and/or ',
+              'could not convert result_column values to integer')
+        sys.exit(1)
+    except TypeError:
+        print('Output array from get_column must only contain integers')
     except FileNotFoundError:
         print('Could not find ' + args.file_name)
         sys.exit(1)

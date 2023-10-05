@@ -31,13 +31,12 @@ def get_column(file_name, query_column, query_value, result_column=1):
         A = line.rstrip().split(',')
         if A[query_column] == query_value:
             result_column_array.append(A[result_column])
-
+    f.close()
     try:
         result_column_array = [int(float(i)) for i in result_column_array]
     except ValueError:
-        print('Could not convert result_column values to integer')
-    finally:
-        return result_column_array
+        return None
+    return result_column_array
 
 
 def find_mean(integer_array):
@@ -53,6 +52,8 @@ def find_mean(integer_array):
     array_mean
         A single value representing the array's average
     """
+    if len(integer_array) <= 0:
+        raise ValueError("Length of array must be greater than zero")
     for value in integer_array:
         if "int" == type(value) is False:
             raise TypeError("Value %s in list is not an integer" % value)
@@ -75,7 +76,17 @@ def find_median(integer_array):
     """
     if len(integer_array) <= 0:
         raise ValueError("Length of array must be greater than zero")
-    array_median = (len(integer_array)+1)/2
+    for value in integer_array:
+        if "int" == type(value) is False:
+            raise TypeError("Value %s in list is not an integer" % value)
+    integer_array.sort()
+    array_len = len(integer_array)
+    # Check if array has an odd or even length
+    if array_len % 2 != 0:
+        array_median = integer_array[int((array_len)/2)]
+    else:
+        array_median = (integer_array[int((array_len/2))] +
+                        integer_array[int(array_len/2-1)])/2
     return array_median
 
 
@@ -92,10 +103,9 @@ def find_std(integer_array):
     array_median
         A single value representing the array's standard deviation
     """
-    for value in integer_array:
-        if "int" == type(value) is False:
-            raise TypeError("Value %s in list is not an integer" % value)
-    array_mean = sum(integer_array)/len(integer_array)
+    if len(integer_array) <= 0:
+        raise ValueError("Length of array must be greater than zero")
+    array_mean = find_mean(integer_array)
     total_numerator = sum((value - array_mean) ** 2 for value in integer_array)
-    array_std = total_numerator/len(integer_array)
+    array_std = (total_numerator/len(integer_array)) ** 0.5
     return array_std
