@@ -1,3 +1,5 @@
+import sys
+
 """Library of math functions:
     * get_column -- returns desired information from data file
     * find_mean -- returns mean of an integer array
@@ -48,8 +50,13 @@ def get_column(file_name, query_column, query_value,
             raise ValueError("Selection not an option for a statistical test.",
                              " Please select mean, median, std, or ",
                              "select no input to return desired data array")
+            sys.exit(1)
             return None
     except ValueError:
+        print("Selection not an option for a statistical test.",
+              " Please select mean, median, std, or ",
+              "select no input to return desired data array")
+        sys.exit(1)
         return None
 
 
@@ -71,6 +78,7 @@ def find_mean(integer_array):
     for value in integer_array:
         if "int" == type(value) is False:
             raise TypeError("Value %s in list is not an integer" % value)
+            sys.exit(1)
     array_mean = sum(integer_array)/len(integer_array)
     return array_mean
 
@@ -90,9 +98,11 @@ def find_median(integer_array):
     """
     if len(integer_array) <= 0:
         raise ValueError("Length of array must be greater than zero")
+        sys.exit(1)
     for value in integer_array:
         if "int" == type(value) is False:
             raise TypeError("Value %s in list is not an integer" % value)
+            sys.exit(1)
     integer_array.sort()
     array_len = len(integer_array)
     # Check if array has an odd or even length
@@ -119,6 +129,7 @@ def find_std(integer_array):
     """
     if len(integer_array) <= 0:
         raise ValueError("Length of array must be greater than zero")
+        sys.exit(1)
     array_mean = find_mean(integer_array)
     total_numerator = sum((value - array_mean) ** 2 for value in integer_array)
     array_std = (total_numerator/len(integer_array)) ** 0.5

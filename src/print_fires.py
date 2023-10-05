@@ -57,6 +57,7 @@ def main():
         sys.exit(1)
     except TypeError:
         print('Output array from get_column must only contain integers')
+        sys.exit(1)
     except FileNotFoundError:
         print('Could not find ' + args.file_name)
         sys.exit(1)

@@ -21,5 +21,5 @@ python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country 
 echo
 
 # Example of input that will raise error in print_fires
-python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 31 --stats "blah"
+python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 3 --stats "blah"
 echo
