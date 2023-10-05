@@ -29,6 +29,14 @@ def main():
                         default=1,
                         required=False)
 
+    parser.add_argument("--stats",
+                        type=str,
+                        help="String with desired statistical test name; " +
+                        "Options are limited to mean, median, or std; " +
+                        "default = None",
+                        default=None,
+                        required=False)
+
     args = parser.parse_args()
 
     # Handling common exceptions
@@ -39,11 +47,13 @@ def main():
         forest_fires = my_utils.get_column(args.file_name,
                                            args.country_column,
                                            args.country,
-                                           args.result_column)
+                                           args.result_column,
+                                           args.stats)
         print(forest_fires)
     except ValueError:
-        print('Output array from get_column cannot be empty and/or ',
-              'could not convert result_column values to integer')
+        print('Output array from get_column cannot be empty and/or \n',
+              'could not convert result_column values to integer and/or \n',
+              'entered unavailable option for statistical test')
         sys.exit(1)
     except TypeError:
         print('Output array from get_column must only contain integers')
