@@ -57,3 +57,23 @@ class TestMyUtils(unittest.TestCase):
         # Is FileNotFoundError raised correctly when wrong file name is given?
         self.assertRaises(FileNotFoundError, my_utils.get_column,
                           "test.csv", 0, "Chile", 0)
+
+    def test_get_column_addopp(self):
+        # Does optional statistical argument return a number, not a list?
+        for i in range(1, 31):
+            get_col_result = my_utils.get_column("test_data.csv",
+                                                 0, "Chile", i, "mean")
+            self.assertNotIsInstance(get_col_result, list)
+
+    def test_get_column_noopp(self):
+        # Does function without optional argument still return a list?
+        for i in range(1, 31):
+            get_col_result = my_utils.get_column("test_data.csv",
+                                                 0, "Chile", i)
+            self.assertIsInstance(get_col_result, list)
+
+    def test_get_column_wrongopp(self):
+        # Is ValueError raised when bad selection input for stats test?
+        for i in range(1, 31):
+            self.assertRaises(ValueError, my_utils.get_column,
+                              "test_data.csv", 0, "Chile", i, "blah")
