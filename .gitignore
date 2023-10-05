@@ -1,4 +1,5 @@
 *.csv
+!test/func/test_data.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
