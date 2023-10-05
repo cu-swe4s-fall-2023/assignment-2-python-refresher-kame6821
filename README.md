@@ -13,6 +13,10 @@ python print_fires.py --file_name "Agrofood_co2_emission.csv" --country "United 
 
 Clone the github repository and ensure python is installed on your local machine.
 
+To run unit tests, cd into test/unit directory and run the following in the terminal: python -m unittest test_my_utils.py
+
+To run functional tests, cd into test/func directory and run the following in the terminal: bash test_print_fires.sh
+
 # Information on releases:
 
 ### Release V1.0 (Assignment 2) Python Refresher:
@@ -26,3 +30,6 @@ Added correct folder structure, exit codes in print_fires, and .gitignore file.
 
 ### Release V3.0:
 Created test_my_utils.py unit tests and test_print_fires.sh functional tests. Added new statistical test functions in my_utils.py and add the option to include those functions as inputs in print_fires.py. Updated .gitignore file accordingly.
+
+#### Release V3.1:
+Included instructions on how to run tests in readme, updated test_my_utils and my_utils to fix a mistake, moved data files to separate data folder and corrected relevant paths.
