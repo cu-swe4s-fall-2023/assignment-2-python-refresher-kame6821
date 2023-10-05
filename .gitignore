@@ -1,5 +1,6 @@
 *.csv
 !test/func/test_data.csv
+!test/unit/test_data.csv
 
 ssshtest
 
