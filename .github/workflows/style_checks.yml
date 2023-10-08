@@ -1,4 +1,5 @@
 name: Style test
+
 on: 
     push:
     pull_request:
