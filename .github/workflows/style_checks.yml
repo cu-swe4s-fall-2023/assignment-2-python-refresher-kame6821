@@ -1,0 +1,18 @@
+name: Style test
+on: 
+    push:
+    pull_request:
+        branches: [ main ]
+jobs:
+  run_style_check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: swe4s
+          environment-file: doc/environment.yml
+      - run: pycodestyle $(git ls-files "*.py")
