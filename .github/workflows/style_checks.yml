@@ -1,4 +1,5 @@
-name: Style test
+name: Tests
+
 on: 
     push:
     pull_request:
@@ -16,3 +17,14 @@ jobs:
           activate-environment: swe4s
           environment-file: doc/environment.yml
       - run: pycodestyle $(git ls-files "*.py")
+    run_unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: swe4s
+          environment-file: doc/environment.yml
+      - run: |
+          cd test/unit
+          python -m unittest test_my_utils
