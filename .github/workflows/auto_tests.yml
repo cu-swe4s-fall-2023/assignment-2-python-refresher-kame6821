@@ -25,7 +25,7 @@ jobs:
             with:
               activate-environment: swe4s
               environment-file: doc/environment.yml
-          - shell: bash -l {0}
+              shell: bash -l {0}
           - run: |
               cd test/unit
               python -m unittest test_my_utils
@@ -37,7 +37,7 @@ jobs:
             with:
               activate-environment: swe4s
               environment-file: doc/environment.yml
-          - shell: bash -l {0}
+              shell: bash -l {0}
           - run: |
               cd test/func
               bash test_print_fires.sh
