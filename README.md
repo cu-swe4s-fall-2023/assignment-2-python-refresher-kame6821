@@ -28,8 +28,11 @@ Updated print_fires.py to work with command line arguments and include a main_fu
 #### Release V2.1:
 Added correct folder structure, exit codes in print_fires, and .gitignore file.
 
-### Release V3.0:
+### Release V3.0 (Assignment 4):
 Created test_my_utils.py unit tests and test_print_fires.sh functional tests. Added new statistical test functions in my_utils.py and add the option to include those functions as inputs in print_fires.py. Updated .gitignore file accordingly.
 
 #### Release V3.1:
 Included instructions on how to run tests in readme, updated test_my_utils and my_utils to fix a mistake, moved data files to separate data folder and corrected relevant paths.
+
+### Release V4.0 (Assignment 5):
+Added an environment file. Added github workflows to run auto testing on every push and pull request (for style checks, unit tests, and funcational tests). Cleaned up folder structure.
