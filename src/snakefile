@@ -1,13 +1,13 @@
-COUNTRIES = "China"
-RESULT_COLS = 1 29
-rule all:
+COUNTRIES = "China" "India"
+rule male_population_plot:
   input:
-    COUNTRY + '.txt'
-rule country_fire_counts:
-  input:
-    'Argrofood_co2_emission.csv'
+    a = "../data/Agrofood_co2_emission.csv",
+    b = "0",
+    c1 = "1",
+    c2 = "29",
+    d = "Year" "Number of People",
+    e = "Total Population Trend"
   output:
-    COUNTRY + '.txt'
-  Shell:
-  "python data_analysis.py --file_name "../data/Agrofood_co2_emission.csv" --country_list "China" "Russia" "Nigeria" "United States of America" "Brazil" "Australia" --country_column 0 --result_column_list 1 29 --x_y_labels "Year" "Number of People" --plot_name "Total Population Trend""
-    "python get_data.py {input} " + COUNTRY + " {output}"
+    COUNTRIES + '_{input.e}.png'
+  shell:
+    "python data_analysis.py --file_name {input.a} --country_list " + COUNTRIES + " --country_column int({input.b}) --result_column_list int({input.c1}) int({input.c2}) --x_y_labels {input.d} --plot_name {input.e}"
