@@ -2,11 +2,30 @@
 
 This software searches an input file by country and returns desired data for that country across a range of years. 
 
+## Results from basic country data analysis:
+The data file is provided here and the user can download it to test reproducibility of results and perform additional analysis: https://drive.google.com/file/d/1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr/view?usp=drive_link. Initial findings are described below
+
+### Initial findings
+Our goal was to assess the agriculture data to find breadth of possible results on the initial round before expanding each type of analysis to additional countries and parameters. We started with three main questions, looking at the numbers from the most populous country on each continent (China, Russia, Nigeria, US, Brazil, Australia):
+
+1. What were the annual trends of rural and urban populations for these countries?
+
+2. Is there a (visual) correlation between total emission and average temperature change for these countries?
+
+3. How does food consumption compare to food retail in these countries?
+
+#### Results: (Coming soon!)
+
+
+#### Methods: 
+
+
+
 ## How to use this software:
 
-Run the following in command line, changing out the file name, country, and column indexes as needed:
+Clone this repository to your machine. Navigate to the src folder from terminal. Edit the run.sh file to achieve the desired outputs with the provided files (described in "Methods" of the "Initial Findings" section above) using Python. Run the following from the terminal, and outputs will be created.
 ```
-python print_fires.py --file_name "Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 3
+bash run.sh
 ```
 
 ## Installation:
@@ -36,3 +55,6 @@ Included instructions on how to run tests in readme, updated test_my_utils and m
 
 ### Release V4.0 (Assignment 5):
 Added an environment file. Added github workflows to run auto testing on every push and pull request (for style checks, unit tests, and funcational tests). Cleaned up folder structure.
+
+### Release V5.0 (Assignment 6):
+Provided example results in readme about the data file used. Added a snakemake pipeline to reproduce results discussed in this project's overview (above). Added unit and functional tests for new code. 
