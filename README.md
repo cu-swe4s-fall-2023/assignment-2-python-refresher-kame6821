@@ -6,24 +6,24 @@ This software searches an input file by country and returns desired data for tha
 The data file is provided here and the user can download it to test reproducibility of results and perform additional analysis: https://drive.google.com/file/d/1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr/view?usp=drive_link. Initial findings are described below
 
 ### Initial findings
-Our goal was to assess the agriculture data to explore male population trends over the years in the two most populous countries from each continent.
+Our goal was to assess the agriculture data to explore total emissions over the years in the two most populous countries from each continent.
 
-#### Results: (Coming soon!)
+#### Results:
+In almost all the plots, the most populous country was emitting significantly more than the second-most populous country on the same continent. Russia (1st) and Germany (2nd) were the only exception, and this is due to Russia's numbers actually appearing negative in our data set for emissions. This requires more investigation. Additionally, several countries have notable peaks or drops in their emissions from one year to another. In particular, the most extreme changes were Brazil after 2010, Nigeria in the late 1990s, and Russia in the early 2000s. We should collaborate with historians to understand what was happening in those countries at that time and try to connect possible policies and decisions to the changes in emissions. This would help decide future courses of action to lower emissions in other countries too.
 
-
-#### Methods: 
+#### Methods:
+To get the visuals that I interpreted for the results described here, I used the snakemake file found in the src directory, replacing the COUNTRIES list with the countries I was interested in seeing at the time. All the other parameters in the snakemake file should remain the same within one job, but new jobs can be created to do different analysis, with different parameters. The resulting png files are written to a "snakemake_output" folder, and I examined each result to come up with the summary above.
 
 
 ## How to use this software:
-
 Clone this repository to your machine. Navigate to the src folder from terminal. Edit the run.sh file to achieve the desired outputs with the provided files (described in "Methods" of the "Initial Findings" section above) using Python. Run the following from the terminal, and outputs will be created.
 ```
 bash run.sh
 ```
 
-To compare male populations in different countries, you can also use the snakefile provided in the src directory. Add the names of countries you want to visualize in the list at the top of the snakefile, save the file, then run "snakemake --cores N" (without the quotes) from the terminal within the src directory, replacing N with the number of cores to be used. 
+To compare total emissions in different countries, you can also use the snakefile provided in the src directory. Add the names of countries you want to visualize in the list at the top of the snakefile, save the file, then run "snakemake --cores N" (without the quotes) from the terminal within the src directory, replacing N with the number of cores to be used. 
 
-Note that print_fires.py is auxiliary code that can be used to print desired data 
+Note that print_fires.py is auxiliary code that can be used to print desired data if run using python from terminal or by editing the run.sh to include all the desired input parameters. 
 
 ## Installation:
 

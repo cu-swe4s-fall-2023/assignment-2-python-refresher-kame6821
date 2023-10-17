@@ -46,8 +46,9 @@ def main():
     
     parser.add_argument("--plot_name",
                         type=str,
-                        help="Provide name for plot to output; default = 'MyPlot1'",
-                        default="MyPlot1",
+                        help="Provide name for plot to output (include .png); " +
+                        "default = 'MyPlot1.png'",
+                        default="MyPlot1.png",
                         required=False)
    
 
@@ -69,7 +70,7 @@ def main():
         plt.legend(loc="best")
         plt.xlabel(args.x_y_labels[0])
         plt.ylabel(args.x_y_labels[1])
-        plt.title(args.plot_name)
+        plt.title("Country Analysis")
         plt.savefig(args.plot_name,bbox_inches='tight')    
         
     except ValueError:
