@@ -8,7 +8,7 @@ rule male_population_plot:
         c2 = 29,
         d1 = 'Year',
         d2 = 'Number of Males',
-        e = 'Male PopulationTrend',
+        e = 'Male Population Trend',
     output:
         plot_name = "_".join(COUNTRIES) + "_MalePopulationTrend.png"
     shell:
