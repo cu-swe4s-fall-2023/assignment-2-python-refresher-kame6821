@@ -2,8 +2,9 @@ import my_utils
 import argparse
 import sys
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
+
 
 def main():
     # Allowing function parameters to be called from command line
@@ -22,15 +23,16 @@ def main():
 
     parser.add_argument("--country_list",
                         nargs="+", type=str,
-                        help="Individual country names (each a str) to query; " + 
+                        help="Individ. country names (each a str) to query; " +
                         "format: 'Country name 1' 'Country name 2'",
                         required=True)
 
     parser.add_argument("--result_column_list",
                         nargs='+', type=int,
-                        help="Individual col indices with desired info; max 2 indices" ,
+                        help="Individual col indices with desired info; " +
+                        "max 2 indices",
                         required=True)
-    
+
     parser.add_argument("--x_y_labels",
                         nargs="+", type=str,
                         help="x and y label for plot (respectively)",
@@ -43,14 +45,13 @@ def main():
                         "default = None",
                         default=None,
                         required=False)
-    
+
     parser.add_argument("--plot_name",
                         type=str,
-                        help="Provide name for plot to output (include .png); " +
+                        help="Name for plot to output (include .png); " +
                         "default = 'MyPlot1.png'",
                         default="MyPlot1.png",
                         required=False)
-   
 
     args = parser.parse_args()
 
@@ -65,14 +66,15 @@ def main():
                                                       desired_col_index,
                                                       args.stats)
                 x_y_country_results.append(one_axis_result)
-            plt.plot(x_y_country_results[0], x_y_country_results[1],label=country)
-        
+            plt.plot(x_y_country_results[0], x_y_country_results[1],
+                     label=country)
+
         plt.legend(loc="best")
         plt.xlabel(args.x_y_labels[0])
         plt.ylabel(args.x_y_labels[1])
         plt.title("Country Analysis")
-        plt.savefig(args.plot_name,bbox_inches='tight')    
-        
+        plt.savefig(args.plot_name, bbox_inches='tight')
+
     except ValueError:
         print('Output array from get_column cannot be empty and/or \n',
               'could not convert result_column values to integer and/or \n',
