@@ -1,6 +1,7 @@
 *.csv
 !data/unit_test_data.csv
 !data/func_test_data.csv
+.src/.snakemake/
 
 *.png
 

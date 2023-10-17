@@ -7,3 +7,5 @@ dependencies:
   - ca-certificates
   - openssl
   - numpy
+  - snakemake
+prefix: /home/jovyan/.conda/envs/swe4s

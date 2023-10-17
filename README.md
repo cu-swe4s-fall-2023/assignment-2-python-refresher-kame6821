@@ -6,19 +6,12 @@ This software searches an input file by country and returns desired data for tha
 The data file is provided here and the user can download it to test reproducibility of results and perform additional analysis: https://drive.google.com/file/d/1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr/view?usp=drive_link. Initial findings are described below
 
 ### Initial findings
-Our goal was to assess the agriculture data to find breadth of possible results on the initial round before expanding each type of analysis to additional countries and parameters. We started with three main questions, looking at the numbers from the most populous country on each continent (China, Russia, Nigeria, US, Brazil, Australia):
-
-1. What were the annual trends of rural and urban populations for these countries?
-
-2. Is there a (visual) correlation between total emission and average temperature change for these countries?
-
-3. How does food consumption compare to food retail in these countries?
+Our goal was to assess the agriculture data to explore male population trends over the years in the two most populous countries from each continent.
 
 #### Results: (Coming soon!)
 
 
 #### Methods: 
-
 
 
 ## How to use this software:
@@ -27,6 +20,10 @@ Clone this repository to your machine. Navigate to the src folder from terminal.
 ```
 bash run.sh
 ```
+
+To compare male populations in different countries, you can also use the snakefile provided in the src directory. Add the names of countries you want to visualize in the list at the top of the snakefile, save the file, then run "snakemake --cores N" (without the quotes) from the terminal within the src directory, replacing N with the number of cores to be used. 
+
+Note that print_fires.py is auxiliary code that can be used to print desired data 
 
 ## Installation:
 

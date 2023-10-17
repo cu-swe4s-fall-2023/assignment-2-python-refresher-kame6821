@@ -1,13 +1,15 @@
-COUNTRIES = "China" "India"
+COUNTRIES = ["Brazil", "Colombia"]
 rule male_population_plot:
-  input:
-    a = "../data/Agrofood_co2_emission.csv",
-    b = "0",
-    c1 = "1",
-    c2 = "29",
-    d = "Year" "Number of People",
-    e = "Total Population Trend"
-  output:
-    COUNTRIES + '_{input.e}.png'
-  shell:
-    "python data_analysis.py --file_name {input.a} --country_list " + COUNTRIES + " --country_column int({input.b}) --result_column_list int({input.c1}) int({input.c2}) --x_y_labels {input.d} --plot_name {input.e}"
+    input:
+        "../data/Agrofood_co2_emission.csv"
+    params:
+        b = 0,
+        c1 = 1,
+        c2 = 29,
+        d1 = 'Year',
+        d2 = 'Number of Males',
+        e = 'Male PopulationTrend',
+    output:
+        plot_name = "_".join(COUNTRIES) + "_MalePopulationTrend.png"
+    shell:
+        "python plot_data.py --file_name {input} --country_list " + " ".join(COUNTRIES) + " --country_column {params.b} --result_column_list {params.c1} {params.c2} --x_y_labels {params.d1} {params.d2} --plot_name {output.plot_name}"
