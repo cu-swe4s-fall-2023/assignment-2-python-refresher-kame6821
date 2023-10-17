@@ -4,22 +4,5 @@ set -u # Raise error if variable is unset
 
 echo # To make outputs easier to read
 
-# Example of functioning inputs
-python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 3
-echo
-
-# Example of functioning inputs with optional statistical test
-python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 3 --stats "mean"
-echo
-
-# Example of input that will raise error in get_column
-python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 0
-echo
-
-# Example of input that will raise error in print_fires
-python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 31
-echo
-
-# Example of input that will raise error in print_fires
-python print_fires.py --file_name "../data/Agrofood_co2_emission.csv" --country "United States of America" --country_column 0 --result_column 3 --stats "blah"
-echo
+# Run to get populations comparison
+python data_analysis.py --file_name "../data/Agrofood_co2_emission.csv" --country_list "China" "Russia" "Nigeria" "United States of America" "Brazil" "Australia" --country_column 0 --result_column_list 1 29 --x_y_labels "Year" "Number of People" --plot_name "Total Population Trend"
