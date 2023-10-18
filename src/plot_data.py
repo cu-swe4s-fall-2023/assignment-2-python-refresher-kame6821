@@ -30,21 +30,13 @@ def main():
     parser.add_argument("--result_column_list",
                         nargs='+', type=int,
                         help="Individual col indices with desired info; " +
-                        "max 2 indices",
+                        "exactly 2 indices",
                         required=True)
 
     parser.add_argument("--x_y_labels",
                         nargs="+", type=str,
                         help="x and y label for plot (respectively)",
                         required=True)
-
-    parser.add_argument("--stats",
-                        type=str,
-                        help="String with desired statistical test name; " +
-                        "Options are limited to mean, median, or std; " +
-                        "default = None",
-                        default=None,
-                        required=False)
 
     parser.add_argument("--plot_name",
                         type=str,
@@ -63,8 +55,7 @@ def main():
                 one_axis_result = my_utils.get_column(args.file_name,
                                                       args.country_column,
                                                       country,
-                                                      desired_col_index,
-                                                      args.stats)
+                                                      desired_col_index)
                 x_y_country_results.append(one_axis_result)
             plt.plot(x_y_country_results[0], x_y_country_results[1],
                      label=country)

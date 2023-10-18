@@ -3,13 +3,15 @@
 This software searches an input file by country and returns desired data for that country across a range of years. 
 
 ## Results from basic country data analysis:
-The data file is provided here and the user can download it to test reproducibility of results and perform additional analysis: https://drive.google.com/file/d/1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr/view?usp=drive_link. Initial findings are described below
+The data file is provided here and the user can download it to test reproducibility of results and perform additional analysis: https://drive.google.com/file/d/1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr/view?usp=drive_link. Initial findings are described below.
 
 ### Initial findings
 Our goal was to assess the agriculture data to explore total emissions over the years in the two most populous countries from each continent.
 
 #### Results:
 In almost all the plots, the most populous country was emitting significantly more than the second-most populous country on the same continent. Russia (1st) and Germany (2nd) were the only exception, and this is due to Russia's numbers actually appearing negative in our data set for emissions. This requires more investigation. Additionally, several countries have notable peaks or drops in their emissions from one year to another. In particular, the most extreme changes were Brazil after 2010, Nigeria in the late 1990s, and Russia in the early 2000s. We should collaborate with historians to understand what was happening in those countries at that time and try to connect possible policies and decisions to the changes in emissions. This would help decide future courses of action to lower emissions in other countries too.
+
+All the plots created for the analysis can be found [here](https://drive.google.com/drive/folders/1ICZXgJlz8RWeILABR4ZvmQ_yPNnPBxMx).
 
 #### Methods:
 To get the visuals that I interpreted for the results described here, I used the snakemake file found in the src directory, replacing the COUNTRIES list with the countries I was interested in seeing at the time. All the other parameters in the snakemake file should remain the same within one job, but new jobs can be created to do different analysis, with different parameters. The resulting png files are written to a "snakemake_output" folder, and I examined each result to come up with the summary above.
@@ -54,4 +56,4 @@ Included instructions on how to run tests in readme, updated test_my_utils and m
 Added an environment file. Added github workflows to run auto testing on every push and pull request (for style checks, unit tests, and funcational tests). Cleaned up folder structure.
 
 ### Release V5.0 (Assignment 6):
-Provided example results in readme about the data file used. Added a snakemake pipeline to reproduce results discussed in this project's overview (above). Added unit and functional tests for new code. 
+Provided example results in readme about the data file used. Added a snakemake pipeline to reproduce results discussed in this project's overview (above). Added additional functional tests for new code (note: since only an alternate main file plot_data.py was made, there were no unit tests to run on any new functions. Therefore, only new functional tests were added).

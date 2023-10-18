@@ -1,4 +1,4 @@
-COUNTRIES = ["'United States of America'","Mexico"]
+COUNTRIES = ["'United States of America'", "Mexico"]
 rule total_emissions_plot:
     input:
         "../data/Agrofood_co2_emission.csv"
@@ -11,4 +11,5 @@ rule total_emissions_plot:
     output:
         plot_name = "snakemake_outputs/" + "_".join(COUNTRIES) + "_TotalEmissions.png"
     shell:
+        "echo {output.plot_name}"
         "python plot_data.py --file_name {input} --country_list " + " ".join(COUNTRIES) + " --country_column {params.b} --result_column_list {params.c1} {params.c2} --x_y_labels {params.d1} {params.d2} --plot_name {output.plot_name}"
