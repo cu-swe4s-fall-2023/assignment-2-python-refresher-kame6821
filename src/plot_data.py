@@ -83,9 +83,6 @@ def main():
     except IndexError:
         print('At least one column index not in chosen file')
         sys.exit(1)
-    finally:
-        print('Data for file name ' + args.file_name)
-
 
 if __name__ == "__main__":
     main()
