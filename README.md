@@ -9,9 +9,19 @@ The data file is provided here and the user can download it to test reproducibil
 Our goal was to assess the agriculture data to explore total emissions over the years in the two most populous countries from each continent.
 
 #### Results:
-In almost all the plots, the most populous country was emitting significantly more than the second-most populous country on the same continent. Russia (1st) and Germany (2nd) were the only exception, and this is due to Russia's numbers actually appearing negative in our data set for emissions. This requires more investigation. Additionally, several countries have notable peaks or drops in their emissions from one year to another. In particular, the most extreme changes were Brazil after 2010, Nigeria in the late 1990s, and Russia in the early 2000s. We should collaborate with historians to understand what was happening in those countries at that time and try to connect possible policies and decisions to the changes in emissions. This would help decide future courses of action to lower emissions in other countries too.
+![Africa: Nigeria and Ethiopia](https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-kame6821/blob/master/docs/NigeriaEthiopia_TotalEmissions.png)
 
-All the plots created for the analysis can be found [here](https://drive.google.com/drive/folders/1ICZXgJlz8RWeILABR4ZvmQ_yPNnPBxMx).
+![Asia: China and India](https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-kame6821/blob/master/docs/ChinaIndia_TotalEmissions.png)
+
+![Europe: Russia and Germany](https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-kame6821/blob/master/docs/RussianFederationGermany_TotalEmissions.png)
+
+![North America: United States and Mexico](https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-kame6821/blob/master/docs/UnitedStatesofAmericaMexico_TotalEmissions.png)
+
+![Oceania: Australia and Papau New Guinea](https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-kame6821/blob/master/docs/AustraliaPapuaNewGuinea_TotalEmissions.png)
+
+![South America: Brazil and Colombia](https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-kame6821/blob/master/docs/BrazilColombia_TotalEmissions.png)
+
+In almost all the plots, the most populous country was emitting significantly more than the second-most populous country on the same continent. Russia (1st) and Germany (2nd) were the only exception, and this is due to Russia's numbers actually appearing negative in our data set for emissions. This requires more investigation. Additionally, several countries have notable peaks or drops in their emissions from one year to another. In particular, the most extreme changes were Brazil after 2010, Nigeria in the late 1990s, and Russia in the early 2000s. We should collaborate with historians to understand what was happening in those countries at that time and try to connect possible policies and decisions to the changes in emissions. This would help decide future courses of action to lower emissions in other countries too.
 
 #### Methods:
 To get the visuals that I interpreted for the results described here, I used the snakemake file found in the src directory, replacing the COUNTRIES list with the countries I was interested in seeing at the time. All the other parameters in the snakemake file should remain the same within one job, but new jobs can be created to do different analysis, with different parameters. The resulting png files are written to a "snakemake_output" folder, and I examined each result to come up with the summary above.
