@@ -4,10 +4,16 @@ joined_countries = COUNTRIES.replace('"',"").replace(" ","")
 rule all:
     input:
         plot_name = "snakemake_outputs/" + joined_countries + "_TotalEmissions.png"
+        
+rule download_data:
+    output:
+        "Agrofood_co2_emission.csv"
+    shell:
+        'wget -O {output} "https://docs.google.com/uc?export=download&id=1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr"'
 
 rule total_emissions_plot:
     input:
-        "../data/Agrofood_co2_emission.csv"
+        "Agrofood_co2_emission.csv"
     params:
         b = 0,
         c1 = 1,
