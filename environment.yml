@@ -5,8 +5,5 @@ channels:
 dependencies:
   - pycodestyle
   - wget
-  - ca-certificates
-  - openssl
   - numpy
   - snakemake
-prefix: /home/jovyan/.conda/envs/swe4s

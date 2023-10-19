@@ -11,11 +11,11 @@ jobs:
           run:
             shell: bash -l {0}
         steps:
-          - uses: actions/checkout@v4
-          - uses: conda-incubator/setup-miniconda@v2
+          - uses: actions/checkout@v2
+          - uses: mamba-org/setup-micromamba@v1
             with:
-              activate-environment: swe4s
               environment-file: environment.yml
+              activate-environment: swe4s
           - run: pycodestyle $(git ls-files "*.py")
     run_unit_tests:
         runs-on: ubuntu-latest
@@ -23,11 +23,11 @@ jobs:
           run:
             shell: bash -l {0}
         steps:
-          - uses: actions/checkout@v4
-          - uses: conda-incubator/setup-miniconda@v2
+          - uses: actions/checkout@v2
+          - uses: mamba-org/setup-micromamba@v1
             with:
-              activate-environment: swe4s
               environment-file: environment.yml
+              environment-name: swe4s
           - run: |
               cd test/unit
               python -m unittest test_my_utils
@@ -37,11 +37,11 @@ jobs:
           run:
             shell: bash -l {0}
         steps:
-          - uses: actions/checkout@v4
-          - uses: conda-incubator/setup-miniconda@v2
+          - uses: actions/checkout@v2
+          - uses: mamba-org/setup-micromamba@v1
             with:
-              activate-environment: swe4s
               environment-file: environment.yml
+              environment-name: swe4s
           - run: |
               cd test/func
               bash test_print_fires.sh
