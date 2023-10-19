@@ -44,5 +44,5 @@ jobs:
               environment-name: swe4s
           - run: |
               cd test/func
-              bash test_print_fires.sh
+              bash test_plot_data_AND_print_fires.sh
 
