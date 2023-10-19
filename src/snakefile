@@ -1,15 +1,26 @@
-COUNTRIES = ["'United States of America'", "Mexico"]
+COUNTRIES = ["'Serbia'"]
+
+rule all:
+    input:
+        "snakemake_outputs/" + " ".join(COUNTRIES).replace("'","") + "_TotalEmissions.png"
+
+rule download_data:
+    output:
+        "Agrofood_co2_emission.csv"
+    shell:
+        'wget -O {output} "https://drive.google.com/file/d/1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr/view?usp=sharing"'
+
 rule total_emissions_plot:
     input:
-        "../data/Agrofood_co2_emission.csv"
+        "Agrofood_co2_emission.csv"
     params:
         b = 0,
         c1 = 1,
         c2 = 29,
-        d1 = '"Year"',
-        d2 = '"Total Emissions"',
+        d1 = "'Year'",
+        d2 = "'Total Emissions'",
     output:
-        plot_name = "snakemake_outputs/" + "_".join(COUNTRIES) + "_TotalEmissions.png"
+        plot_name = "snakemake_outputs/" + " ".join(COUNTRIES).replace("'","") + "_TotalEmissions.png"
     shell:
         "echo {output.plot_name}"
         "python plot_data.py --file_name {input} --country_list " + " ".join(COUNTRIES) + " --country_column {params.b} --result_column_list {params.c1} {params.c2} --x_y_labels {params.d1} {params.d2} --plot_name {output.plot_name}"
