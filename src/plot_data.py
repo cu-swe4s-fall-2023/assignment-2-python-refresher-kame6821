@@ -24,7 +24,7 @@ def main():
     parser.add_argument("--country_list",
                         nargs="+", type=str,
                         help="Individ. country names (each a str) to query; " +
-                        "format: 'Country name 1' 'Country name 2'",
+                        "format: str('Country name 1' 'Country name 2')",
                         required=True)
 
     parser.add_argument("--result_column_list",
